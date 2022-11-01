@@ -1,13 +1,13 @@
-import { queryClient } from "../utils/server";
-import AnotherComponent from "./AnotherComponent";
+import MyClientComponent from "./MyClientComponent";
+import { useData } from "../utils/someLibrary";
 
 export default function Page() {
-  queryClient.setQueryData(["test"], "Hello World");
+  const data = useData(["suspenseDemo"]);
 
   return (
     <>
-      <h1>Hello World</h1>
-      <AnotherComponent />
+      <p>According to RCS: {data}</p>
+      <MyClientComponent />
     </>
   );
 }
